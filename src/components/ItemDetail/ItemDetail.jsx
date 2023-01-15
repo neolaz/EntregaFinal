@@ -1,8 +1,10 @@
 import ItemCount from "./ItemCount/ItemCount.jsx";
+import { useCartContext } from "../../context/CartContext";
 
 const ItemDetail = ({item}) => {
-    const onAdd = (contador) => {
-        console.log(contador)
+    const {addItem} = useCartContext()
+    const onAdd = (counter) => {
+        addItem(item, counter)
     }  
 
     return (
