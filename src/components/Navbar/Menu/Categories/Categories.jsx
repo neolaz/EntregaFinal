@@ -1,25 +1,27 @@
+import { Link } from "react-router-dom";
+
 const Categories = () => {
     return ( 
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-                <a className="nav-link" href="/category/dragonball">
+                <Link className="nav-link" to="/category/dragonball">
                     Dragon Ball
-                </a>
+                </Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="/category/haikyu">
+                <Link className="nav-link" to="/category/haikyu">
                     Haikyū!!
-                </a>
+                </Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="/category/myheroacademia">
+                <Link className="nav-link" to="/category/myheroacademia">
                     My Hero Academia
-                </a>
+                </Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="/category/onepiece">
+                <Link className="nav-link" to="/category/onepiece">
                     One Piece
-                </a>
+                </Link>
             </li>
         </ul>
     );

@@ -26,7 +26,6 @@ export const CartProvider = (props) => {
             const aux = cart
             aux.push(newItem)
             setCart(aux)
-            console.log(cart)
         }
     }
 
@@ -39,11 +38,11 @@ export const CartProvider = (props) => {
     }
 
     const getItemQuantity = () => {
-        return cart.reduce((acum,prod) => acum += prod.cant, 0)
+        return cart.reduce((acum,prod) => acum += prod.qty, 0)
     }
 
     const totalPrice = () => {
-        return cart.reduce((acum, prod) => acum += (prod.cant * prod.precio), 0)
+        return cart.reduce((acum, prod) => acum += (prod.qty * prod.precio), 0)
     }
     return (
         <CartContext.Provider value={{cart, isInCart, addItem, removeItem, emptyCart, getItemQuantity, totalPrice}}>

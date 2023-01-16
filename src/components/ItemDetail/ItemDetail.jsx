@@ -1,4 +1,5 @@
 import ItemCount from "./ItemCount/ItemCount.jsx";
+import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 
 const ItemDetail = ({item}) => {
@@ -21,7 +22,7 @@ const ItemDetail = ({item}) => {
                 <p className="textGeneric">Precio: <span>${item.price}</span></p>
                 <p className="textGeneric">Cantidad disponible: <span>{item.stock}</span></p>
                 <ItemCount initial = {1} stock= {item.stock} onAdd={onAdd}/>
-                <a href='/cart'>Finalizar compra</a>
+                <Link to='/cart'>Finalizar compra</Link>
             </div>
         </div>
     );

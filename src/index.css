@@ -154,6 +154,9 @@ nav ul li a.nav-link:hover {
   color: #30fdb0;
   opacity: 0.5;
 }
+nav ul li a.nav-link:focus {
+  color: white;
+}
 nav div.botonCarrito{
   background: #3c3c3c;
   border-radius: 10px;
@@ -196,11 +199,13 @@ nav div.botonCarrito a img{
 }
 
 .itemCard {
+  height: 100%;
   border: 2px solid #30fdb0;
   border-radius: 10px;
   padding: 15px;;
 }
 .itemCard figure {
+  height: 100%;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
@@ -209,6 +214,8 @@ nav div.botonCarrito a img{
 }
 
 .itemCard figure img {
+  object-fit: cover;
+  height: 100%;
   transition: all 400ms ease-out;
   will-change: transform;
 }
@@ -321,10 +328,24 @@ nav div.botonCarrito a img{
   padding: 8px 12px !important;
 }
 
+.itemCount .itemCountButton:hover {
+  opacity: 0.5;
+  transform: scale(0.98);
+  transition-timing-function: ease;
+  transition: 0.4s;
+}
+
 .itemCount .itemCountButton.itemCountCarrito{
   width: auto;
   margin-left: 15px;
   border: 2px solid #30fdb0;
+}
+
+.itemCount .itemCountButton.itemCountCarrito:hover {
+  opacity: 0.5;
+  transform: scale(0.98);
+  transition-timing-function: ease;
+  transition: 0.4s;
 }
 
 /* Cart  ---------------------------------------------*/
@@ -352,6 +373,74 @@ nav div.botonCarrito a img{
   transition-timing-function: ease;
   transition: 0.4s;
 }
+
+.containerCustom.cart h2{
+  font-size: 1.5em;
+  transition: all 400ms ease-out;
+  color: #30fdb0;
+  width: 100%;
+}
+
+
+
+
+.cartItemCardContainer{
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  padding-bottom: calc(var(--bs-gutter-x) * 0.5);
+}
+
+.cartItemCard {
+  height: 100%;
+  border: 2px solid #30fdb0;
+  border-radius: 10px;
+  padding: 15px;;
+}
+.cartItemCard figure {
+  display: flex;
+  height: 100%;
+  border-radius: 10px;
+  margin: 0px;
+}
+
+.cartItemCard figure img {
+  width: 30%;
+  object-fit: cover !important;
+}
+
+.cartItemCard figure .cartCardDescription {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.cartItemCard figure .cartCardDescription h3 {
+  font-size: 1.1em;
+  transition: all 400ms ease-out;
+  color: #30fdb0;
+  width: 100%;
+  height: auto;
+}
+
+.cartItemCard figure .cartCardDescription p{
+  margin-bottom: 0.1rem;
+}
+
+.cartActionButtonsContainer{
+  
+}
+.cartActionButtonsContainer button{
+  
+}
+
+
+
+
+
+
 
 /* Checkout  ---------------------------------------------*/
 .checkout{
