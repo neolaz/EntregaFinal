@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { createOrder, getOrder, getProduct, updateProduct} from '../../assets/firebase';
 import { useCartContext } from "../../context/CartContext";
 
@@ -29,12 +28,11 @@ const Cart = () => {
 
         createOrder(client, getTotal(), new Date().toISOString()).then(order => {
             getOrder(order.id).then(item => {
-                toast.success(`¡Muchas gracias por su compra, su orden es ${item.id}`)
                 emptyCart()
                 e.target.reset()
                 navigate("/")
             }).catch(error => {
-                toast.error("Su orden no fue generada con éxito")
+                console.log("falló")
             })
             
         })
