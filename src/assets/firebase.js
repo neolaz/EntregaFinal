@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, addDoc, getDocs, getDoc, collection, doc, query, orderBy} from 'firebase/firestore'
+import { getFirestore, addDoc, getDocs, getDoc, collection, doc, query, orderBy, updateDoc, deleteDoc} from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBkmpcYttWTPssPiFwsQVQzULAdE7MvF9g",
@@ -51,4 +51,50 @@ const getProduct =  async (id) => {
     return item
 }
 
-export { populateDatabase, getProducts, getProduct }
+const updateProduct = async (id, data) => {
+    const est = await updateDoc(doc(db,"products", id), data)
+    return est
+}
+
+const deleteProduct = async(id) =>{
+    const est = await deleteDoc(doc(db, "products", id))
+    return est
+}
+
+const createOrder = async (client, total, date ) => {
+    const order = await addDoc(collection(db, "orders"),{
+        name: client.name,
+        lastName: client.lastName,
+        mail: client.mail,
+        phone: client.phone,
+        province: client.province,
+        city: client.city,
+        street: client.street,
+        stnumber: client.stnumber,
+        date: date,
+        total: total
+        
+        // // ToDo: revisar por qué no toma lo que traigo del formulario
+        // city: "CABA",
+        // date: "01/01/2023",
+        // lastName: "Mengano",
+        // mail: "fulano@mail.com",
+        // name: "Fulano",
+        // phone: "123321123",
+        // province: "CABA",
+        // stnumber: "123",
+        // street: "Calle Falsa",
+        // total: "1000" 
+
+    })
+
+    return order
+}
+
+const getOrder =  async (id) => {
+    const order = await getDoc(doc(db, "orders", id))
+    const item = {...order.data(), id: order.id}
+    return item
+}
+
+export { populateDatabase, getProducts, getProduct, updateProduct, deleteProduct, createOrder, getOrder }

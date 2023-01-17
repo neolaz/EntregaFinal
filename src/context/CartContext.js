@@ -16,16 +16,14 @@ export const CartProvider = (props) => {
             const index = cart.findIndex(prod => prod.id === product.id)
             const aux = [...cart]
 
-            aux[index].qty += quantity
+            aux[index].qty = quantity
             setCart(aux)
         } else {
             const newItem = {
                 ...product,
-                qty: quantity,
+                qty: quantity
             }
-            const aux = cart
-            aux.push(newItem)
-            setCart(aux)
+            setCart([...cart,newItem])
         }
     }
 

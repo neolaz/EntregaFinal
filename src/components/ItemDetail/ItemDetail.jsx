@@ -4,9 +4,10 @@ import { useCartContext } from "../../context/CartContext";
 
 const ItemDetail = ({item}) => {
     const {addItem} = useCartContext()
-    const onAdd = (quantity) => {
-        addItem(item, quantity)
-    }  
+
+    const onAdd = (count) => {
+        addItem(item, count)
+    }   
 
     return (
         <div className="containerCustom containerFlex containerItemDetail">
@@ -22,7 +23,7 @@ const ItemDetail = ({item}) => {
                 <p className="textGeneric">Precio: <span>${item.price}</span></p>
                 <p className="textGeneric">Cantidad disponible: <span>{item.stock}</span></p>
                 <ItemCount initial={1} stock= {item.stock} onAdd={onAdd}/>
-                <Link onAdd={onAdd} to='/cart'>Finalizar compra</Link>
+                <Link to='/cart'>Finalizar compra</Link>
             </div>
         </div>
     );
