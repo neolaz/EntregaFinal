@@ -16,12 +16,12 @@ export const CartProvider = (props) => {
             const index = cart.findIndex(prod => prod.id === product.id)
             const aux = [...cart]
 
-            aux[index].qty = quantity
+            aux[index].qty += quantity
             setCart(aux)
         } else {
             const newItem = {
                 ...product,
-                qty: quantity
+                qty: quantity,
             }
             const aux = cart
             aux.push(newItem)
@@ -41,11 +41,12 @@ export const CartProvider = (props) => {
         return cart.reduce((acum,prod) => acum += prod.qty, 0)
     }
 
-    const totalPrice = () => {
-        return cart.reduce((acum, prod) => acum += (prod.qty * prod.precio), 0)
+    const getTotal = () => {
+        return cart.reduce((acum, prod) => acum += (prod.qty * prod.price), 0)
     }
+
     return (
-        <CartContext.Provider value={{cart, isInCart, addItem, removeItem, emptyCart, getItemQuantity, totalPrice}}>
+        <CartContext.Provider value={{cart, isInCart, addItem, removeItem, emptyCart, getItemQuantity, getTotal}}>
             {props.children}
         </CartContext.Provider>
     )
