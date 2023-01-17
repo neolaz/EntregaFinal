@@ -73,19 +73,6 @@ const createOrder = async (client, total, date ) => {
         stnumber: client.stnumber,
         date: date,
         total: total
-        
-        // // ToDo: revisar por qué no toma lo que traigo del formulario
-        // city: "CABA",
-        // date: "01/01/2023",
-        // lastName: "Mengano",
-        // mail: "fulano@mail.com",
-        // name: "Fulano",
-        // phone: "123321123",
-        // province: "CABA",
-        // stnumber: "123",
-        // street: "Calle Falsa",
-        // total: "1000" 
-
     })
 
     return order
